@@ -1,72 +1,71 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React from "react";
+import { SectionList, Text, StyleSheet, View, } from 'react-native';
 
+const sections = [
+  { title: 'Seção 1', data: [' Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 4', 'Item 6'] },
+  { title: 'Seção 2', data: [' Item 7', 'Item 8', 'Item 9', 'Item 10', 'Item 11'] },
+  { title: 'Seção 3', data: [' Item 12', 'Item 13', 'Item 14', 'Item 15'] },
+];
 
 export default function App() {
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  console.log({login,password});
+  const [expanded, setExpanded] = React.useState({});
 
-  function handlePress() {
-  if (login === 'admin' && password === 'admin') {
-    return alert('Login successful!');
-  }
-}
+  const toggleSection = (index) => {
+    setExpanded(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
 
   return (
-    <View style={styles.container} >
-      <View style={styles.WrapperLogin}>
-      <TextInput style={styles.input} placeholder="Login" value={login} onChangeText={setLogin} />
-      <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} />
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
-        <Text style={styles.buttonText}>Press me</Text>
-      </TouchableOpacity>
-      </View>
-      <StatusBar style="auto" />
-    </View>  
+    <View style={styles.container}>
+      <SectionList
+        sections={sections}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item, section }) => 
+          expanded[sections.indexOf(section)] ? (
+            <View style={styles.item}>
+              <Text style={styles.text}>{item}</Text>
+            </View>
+          ) : null
+        }
+        renderSectionHeader={({ section }) => (
+          <Text 
+            style={styles.header}
+            onPress={() => toggleSection(sections.indexOf(section))}
+          >
+            {section.title} {expanded[sections.indexOf(section)] ? '▼' : '▶'}
+          </Text>
+        )}
+        contentContainerStyle={styles.list}
+      />
+    </View>
   );
 }
 
 
-
-
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 40,
+  },
+  list: {
     padding: 20,
+    marginTop: 80,
   },
-  WrapperLogin:{
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 20,
+  header: {
+    fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  button:{
-    backgroundColor: '#007AFF',
+    backgroundColor: '#d0d0d0',
     padding: 10,
-    borderRadius: 5,
-    width: '100%'
+    borderRadius: 8,
   },
-  buttonText:{
-    color: '#fff',
+  item: {
+    marginBottom: 10,
+    padding: 15,
+    backgroundColor: '#f9fbe7',
+    borderRadius: 8,
+  },
+  text: {
     fontSize: 16,
-    textAlign: 'center'
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    marginVertical: 10,
-    width: '100%'
-  }
 });
