@@ -88,7 +88,9 @@ export default function App() {
               Ao trocar de aba, o componente é remontado, 
               garantindo que a animação do Modal seja processada do zero.
           */}
-          <Tab.Screen name="SLIDE">
+          <Tab.Screen name="SLIDE"
+            
+          >
             {() => <CustomModalScreen animation="slide" themeColor="#2196F3" />}
           </Tab.Screen>
           
