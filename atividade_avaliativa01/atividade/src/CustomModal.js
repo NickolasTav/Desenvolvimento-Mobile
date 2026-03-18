@@ -6,8 +6,7 @@ import {
     Modal,
     TouchableOpacity
 } from 'react-native';
-// Substituímos o SafeAreaView nativo pelo da biblioteca de contexto para suporte total a notches e
-Android
+
 import {  SafeAreaView } from 'react-native-safe-area-context';
 
 export const CustomModalScreen = ({ animation, themeColor }) => {
