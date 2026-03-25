@@ -23,7 +23,7 @@ export default function HomeScreen() {
                     <Ionicons name="list-outline" size={24} color="#4CAF50" />
                     <View style={styles.cardTextContent}>
                         <Text style={styles.cardTitle}>Listas Otimizadas</Text>
-                        <Text style={styles.cardDescription}>Explore vários itens renderizados com FlatList e ScrollView.</Text>
+                        <Text style={styles.cardDescription}>Explore 100 itens renderizados com FlatList e ScrollView.</Text>
                     </View>
                 </View>
 
