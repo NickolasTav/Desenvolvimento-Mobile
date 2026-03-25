@@ -4,12 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import ScrollViewScreen from '../screens/ScrollViewScreen/ScrollViewScreen';
 import FlatListScreen from '../screens/FlatListScreen/FlatListScreen';
 import SectionListScreen from '../screens/SectionListScreen/SectionListScreen';
-
-type ScrollTabsParamList = {
-	ScrollView: undefined;
-	FlatList: undefined;
-	SectionList: undefined;
-};
+import { ScrollTabsParamList } from './Navigation.types';
 
 const Tab = createBottomTabNavigator<ScrollTabsParamList>();
 
@@ -29,6 +24,10 @@ export default function ScrollTabsNavigation() {
 					return <Ionicons name="grid-outline" size={size} color={color} />;
 				},
 				headerShown: false,
+				tabBarStyle: {
+					paddingBottom: 10,
+					height: 60,
+				},
 			})}
 		>
 			<Tab.Screen

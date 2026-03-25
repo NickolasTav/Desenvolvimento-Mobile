@@ -3,3 +3,15 @@ export type RootDrawerParamList = {
   Modal: undefined;
   ScrollTabs: undefined;
 };
+
+export type ScrollTabsParamList = {
+  ScrollView: undefined;
+  FlatList: undefined;
+  SectionList: undefined;
+};
+
+export type ModalTabsParamList = {
+  SLIDE: undefined;
+  FADE: undefined;
+  NONE: undefined;
+};

@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     color: '#333',
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#00b5fd96',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 10,
@@ -34,6 +34,9 @@ export const styles = StyleSheet.create({
     marginTop: 8,
   },
   itemCard: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderWidth: 1,
     borderColor: '#e1e1e1',
     borderRadius: 12,
@@ -41,8 +44,14 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: '#fafafa',
   },
-  itemText: {
+  itemName: {
     fontSize: 15,
     color: '#2a2a2a',
+    fontWeight: '600',
+  },
+  itemPrice: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#1b5e20',
   },
 });
