@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ModalScreen from '../screens/ModalScreen/ModalScreen';
+import ScrollTabsNavigation from './ScrollTabsNavigation';
 import { RootDrawerParamList } from './Navigation.types';
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
@@ -31,6 +32,16 @@ export default function AppNavigator() {
           options={{
             drawerIcon: ({ color, size }) => (
               <Ionicons name="layers-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="ScrollTabs"
+          component={ScrollTabsNavigation}
+          options={{
+            title: 'Scroll Tabs',
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="list-outline" size={size} color={color} />
             ),
           }}
         />

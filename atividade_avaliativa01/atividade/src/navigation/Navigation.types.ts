@@ -1,5 +1,5 @@
 export type RootDrawerParamList = {
   Home: undefined;
   Modal: undefined;
-  FlatList: undefined;
+  ScrollTabs: undefined;
 };
