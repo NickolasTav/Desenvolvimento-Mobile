@@ -3,7 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import ModalScreen from '../screens/ModalScreen/ModalScreen';
+import ModalTabsNavigation from './ModalTabsNavigation';
 import ScrollTabsNavigation from './ScrollTabsNavigation';
 import { RootDrawerParamList } from './Navigation.types';
 
@@ -28,7 +28,7 @@ export default function AppNavigator() {
         />
         <Drawer.Screen
           name="Modal"
-          component={ModalScreen}
+          component={ModalTabsNavigation}
           options={{
             drawerIcon: ({ color, size }) => (
               <Ionicons name="layers-outline" size={size} color={color} />

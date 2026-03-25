@@ -1,9 +1,4 @@
-export type MockItem = {
-  id: string;
-  nome: string;
-  categoria: string;
-  preco: number;
-};
+import { MockItem, SectionItem } from './mockData.types';
 
 export const mockItems: MockItem[] = [
   { id: '1', nome: 'Camiseta Básica', categoria: 'Roupas', preco: 49.9 },
@@ -16,8 +11,29 @@ export const mockItems: MockItem[] = [
   { id: '8', nome: 'Luminária de Mesa', categoria: 'Casa', preco: 79.9 },
 ];
 
-export const sectionsItems: { title: string; data: string[] }[] = [
-    { title: 'Frutas', data: ['Maçã', 'Banana', 'Laranja'] },
-    { title: 'Legumes', data: ['Cenoura', 'Batata', 'Tomate'] },
-    { title: 'Verduras', data: ['Alface', 'Espinafre', 'Couve'] },
-  ];
+export const sectionsItems: SectionItem[] = [
+  {
+    title: 'Roupas',
+    data: mockItems.filter((item: MockItem) => item.categoria === 'Roupas'),
+  },
+  {
+    title: 'Calçados',
+    data: mockItems.filter((item: MockItem) => item.categoria === 'Calçados'),
+  },
+  {
+    title: 'Acessórios',
+    data: mockItems.filter((item: MockItem) => item.categoria === 'Acessórios'),
+  },
+  {
+    title: 'Casa',
+    data: mockItems.filter((item: MockItem) => item.categoria === 'Casa'),
+  },
+  {
+    title: 'Eletrônicos',
+    data: mockItems.filter((item: MockItem) => item.categoria === 'Eletrônicos'),
+  },
+  {
+    title: 'Papelaria',
+    data: mockItems.filter((item: MockItem) => item.categoria === 'Papelaria'),
+  },
+];
